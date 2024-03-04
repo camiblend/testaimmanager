@@ -11,21 +11,23 @@ persist_with: v1_warehouse_default_datagroup
 
 include: "/views/**/*.view"
 
-explore: tenant_checklist_fact {
-  join: venue {
+explore: openplaza_check_cat_4_adherencia {
+  join: openplaza_check_cat_4_fact {
     type: left_outer
-    sql_on: ${tenant_checklist_fact.venue_id} = ${venue.venue_id};;
-    relationship: one_to_many
+    sql_on: ${openplaza_check_cat_4_adherencia.fecha}             = ${openplaza_check_cat_4_fact.fecha} and
+            ${openplaza_check_cat_4_adherencia.checklist_type_id} = ${openplaza_check_cat_4_fact.checklist_type_id} and
+            ${openplaza_check_cat_4_adherencia.venue_id}          = ${openplaza_check_cat_4_fact.venue_id};;
+    relationship: many_to_many
   }
-  join: tenant_checklist_section_fact {
+  join: openplaza_check_cat_4_section {
     type:  left_outer
-    sql_on:  ${tenant_checklist_fact.checklist_id} = ${tenant_checklist_section_fact.checklist_id};;
+    sql_on:  ${openplaza_check_cat_4_section.checklist_id}        = ${openplaza_check_cat_4_fact.checklist_id};;
     relationship: one_to_many
   }
-  join: tenant_checklist_step_fact {
+  join: openplaza_checks_cat_4_step {
     type: left_outer
-    sql_on: ${tenant_checklist_section_fact.checklist_id}    = ${tenant_checklist_step_fact.checklist_id} and
-      ${tenant_checklist_section_fact.section_type_id} = ${tenant_checklist_step_fact.section_type_id};;
+    sql_on: ${openplaza_checks_cat_4_step.checklist_id}            = ${openplaza_check_cat_4_section.checklist_id} and
+            ${openplaza_checks_cat_4_step.section_type_id}         = ${openplaza_check_cat_4_section.section_type_id};;
     relationship: one_to_many
   }
 }
