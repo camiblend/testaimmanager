@@ -2,7 +2,7 @@ connection: "test_bi"
 
 datagroup: v1_warehouse_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "24 hour"
+  max_cache_age: "1 hour"
 }
 
 persist_with: v1_warehouse_default_datagroup
