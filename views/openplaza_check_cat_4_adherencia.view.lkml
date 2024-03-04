@@ -9,7 +9,7 @@ view: openplaza_check_cat_4_adherencia {
               where checklist_category_id = 4
           ),
           periodos as (
-              select generate_series('2023-03-04',current_date - 1,'1 day')::date fecha, 1 q
+              select cast(generate_series('2023-03-04',current_date - 1,'1 day') as date) fecha, 1 q
           ),
           tipo_check as (
               select *, split_part(checklist_type_name,' v',1) tipo_checklist,
@@ -61,7 +61,7 @@ view: openplaza_check_cat_4_adherencia {
                         end to_join
               from rn where rn = 1
           )
-      
+
       select bf.*, checklist_id
       from base_final bf
       left join ejecuciones e using (to_join,checklist_type_id,venue_id) ;;
@@ -140,18 +140,18 @@ view: openplaza_check_cat_4_adherencia {
   set: detail {
     fields: [
         checklist_type_id,
-	frecuencia,
-	fecha,
-	q,
-	checklist_category_id,
-	checklist_category_name,
-	checklist_type_name,
-	tipo_checklist,
-	venue_id,
-	venue_name,
-	venue_alias,
-	to_join,
-	checklist_id
+  frecuencia,
+  fecha,
+  q,
+  checklist_category_id,
+  checklist_category_name,
+  checklist_type_name,
+  tipo_checklist,
+  venue_id,
+  venue_name,
+  venue_alias,
+  to_join,
+  checklist_id
     ]
   }
 }
