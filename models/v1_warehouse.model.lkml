@@ -5,6 +5,7 @@ datagroup: v1_warehouse_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+
 persist_with: v1_warehouse_default_datagroup
 
 # include all the views
