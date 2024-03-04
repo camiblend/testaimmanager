@@ -10,7 +10,7 @@ view: openplaza_check_cat_4_adherencia {
     ),
 
     periodos as (
-      select generate_series('2023-03-04',current_date -1,'1 Day')::date fecha, 1 q
+      select cast(generate_series('2023-03-04',current_date -1,'1 Day') as date) fecha, 1 q
     ),
 
     tipo_check as (
@@ -29,10 +29,10 @@ view: openplaza_check_cat_4_adherencia {
     ),
 
     base_final as (
-        select *, case when frecuencia = 'Diaria'  then fecha::text
+        select *, case when frecuencia = 'Diaria'  then cast(fecha as text)
                        when frecuencia = 'Semanal' then concat(extract(year from fecha),'-s',extract(week  from fecha))
                        when frecuencia = 'Mensual' then concat(extract(year from fecha),'-m',extract(month from fecha))
-                       when frecuencia = 'Anual'   then extract(year from fecha)::text
+                       when frecuencia = 'Anual'   then cast(extract(year from fecha) as text)
                   end to_join
         from frecuencias
         join periodos on 1=1
@@ -48,8 +48,8 @@ view: openplaza_check_cat_4_adherencia {
     ),
 
     rn as (
-        select checklist_id, checklist_type_id, venue_id, fecha::date, frecuencia,
-               case when frecuencia = 'Diaria'  then row_number() over (partition by fecha::date,               venue_id, checklist_type_id order by fecha desc)
+        select checklist_id, checklist_type_id, venue_id, cast(fecha as date), frecuencia,
+               case when frecuencia = 'Diaria'  then row_number() over (partition by cast(fecha as date),       venue_id, checklist_type_id order by fecha desc)
                     when frecuencia = 'Semanal' then row_number() over (partition by extract(week  from fecha), venue_id, checklist_type_id order by fecha desc)
                     when frecuencia = 'Mensual' then row_number() over (partition by extract(month from fecha), venue_id, checklist_type_id order by fecha desc)
                     when frecuencia = 'Anual'   then row_number() over (partition by extract(year  from fecha), venue_id, checklist_type_id order by fecha desc)
@@ -57,17 +57,17 @@ view: openplaza_check_cat_4_adherencia {
         from facts
     ),
     ejecuciones as (
-        select *, case when frecuencia = 'Diaria'  then fecha::text
+        select *, case when frecuencia = 'Diaria'  then cast(fecha as text)
                        when frecuencia = 'Semanal' then concat(extract(year from fecha),'-s',extract(week  from fecha))
                        when frecuencia = 'Mensual' then concat(extract(year from fecha),'-m',extract(month from fecha))
-                       when frecuencia = 'Anual'   then extract(year from fecha)::text
+                       when frecuencia = 'Anual'   then cast(extract(year from fecha) as text)
                   end to_join
         from rn where rn = 1
     )
 
-select base_final.*, ejecuciones.checklist_id
+select base_final.*, checklist_id
 from base_final
-left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
+left join ejecuciones e using (to_join,checklist_type_id,venue_id) ;;
   }
 
   measure: count {
