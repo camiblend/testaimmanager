@@ -22,15 +22,10 @@ explore: tenant_checklist_fact {
     sql_on:  ${tenant_checklist_fact.checklist_id} = ${tenant_checklist_section_fact.checklist_id};;
     relationship: one_to_many
   }
-}
-
-explore: tenant_checklist_section_fact {
   join: tenant_checklist_step_fact {
     type: left_outer
     sql_on: ${tenant_checklist_section_fact.checklist_id}    = ${tenant_checklist_step_fact.checklist_id} and
-            ${tenant_checklist_section_fact.section_type_id} = ${tenant_checklist_step_fact.section_type_id};;
+      ${tenant_checklist_section_fact.section_type_id} = ${tenant_checklist_step_fact.section_type_id};;
     relationship: one_to_many
   }
 }
-
-explore: tenant_checklist_step_fact {}
