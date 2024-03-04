@@ -8,9 +8,15 @@ datagroup: v1_warehouse_default_datagroup {
 persist_with: v1_warehouse_default_datagroup
 
 # include all the views
+
 include: "/views/**/*.view"
 
 explore: tenant_checklist_fact {
+  join: venue {
+    type: left_outer
+    sql_on: ${tenant_checklist_fact.venue_id} = ${venue.venue_id};;
+    relationship: one_to_many
+  }
   join: tenant_checklist_section_fact {
     type:  left_outer
     sql_on:  ${tenant_checklist_fact.checklist_id} = ${tenant_checklist_section_fact.checklist_id};;
