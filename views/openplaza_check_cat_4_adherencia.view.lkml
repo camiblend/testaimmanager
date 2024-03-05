@@ -80,6 +80,11 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${TABLE}."checklist_type_id" ;;
   }
 
+  dimension: identificador {
+    type: string
+    sql: ${TABLE}."identificador" ;;
+  }
+
   dimension: frecuencia {
     type: string
     sql: ${TABLE}."frecuencia" ;;
@@ -143,6 +148,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   set: detail {
     fields: [
         checklist_type_id,
+  identificador,
   frecuencia,
   fecha,
   q,
