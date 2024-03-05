@@ -65,7 +65,7 @@ view: openplaza_check_cat_4_adherencia {
         from rn where rn = 1
     )
 
-select base_final.*, ejecuciones.checklist_id
+select base_final.*, ejecuciones.checklist_id, concat(tipo_checklist,venue_name,to_join) identificador
 from base_final
 left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   }
