@@ -151,6 +151,10 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${checklist_id} ;;
   }
 
+  measure: number_of_unique_type_venue_join {
+    type: count_distinct
+    sql: ${identificador} ;;
+  }
   set: detail {
     fields: [
         checklist_type_id,
