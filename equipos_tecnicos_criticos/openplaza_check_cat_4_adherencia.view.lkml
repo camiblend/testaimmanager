@@ -158,7 +158,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
 
   measure: cumplimiento {
     type: number
-    sql: ${ejecuciones}/${meta} ;;
+    sql: (${ejecuciones}/${meta})*100 ;;
   }
 
   set: detail {
