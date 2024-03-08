@@ -127,6 +127,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
 
   dimension: venue_name {
     type: string
+    label: "Recinto"
     sql: ${TABLE}."venue_name" ;;
   }
 
