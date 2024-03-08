@@ -156,10 +156,6 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${identificador} ;;
   }
 
-  measure: cumplimiento {
-    type: number
-    sql: (${ejecuciones}/${meta})*100 ;;
-  }
 
   set: detail {
     fields: [
@@ -178,8 +174,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   to_join,
   checklist_id,
   ejecuciones,
-  meta,
-  cumplimiento
+  meta
     ]
   }
 }
