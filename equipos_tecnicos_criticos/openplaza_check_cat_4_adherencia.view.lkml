@@ -179,7 +179,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   to_join,
   checklist_id,
   ejecuciones,
-  meta
+  meta,
+  cumplimiento
     ]
   }
 }
