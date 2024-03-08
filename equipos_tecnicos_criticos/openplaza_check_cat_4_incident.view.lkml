@@ -101,25 +101,31 @@ view: openplaza_check_cat_4_incident {
     sql: ${TABLE}."sla" ;;
   }
 
+  measure: incidentes {
+    type:  count_distinct
+    sql: ${incident_id} ;;
+  }
+
   set: detail {
     fields: [
         date_time,
-	finished_date_time,
-	is_finished,
-	incident_id,
-	user_id,
-	user_name,
-	user_email,
-	tag_id,
-	incident_description,
-	incident_state_type_id,
-	incident_state_type_name,
-	incident_category_id,
-	incident_category_name,
-	incident_interface_id,
-	incident_interface_name,
-	checklist_step_id,
-	sla
+  finished_date_time,
+  is_finished,
+  incident_id,
+  user_id,
+  user_name,
+  user_email,
+  tag_id,
+  incident_description,
+  incident_state_type_id,
+  incident_state_type_name,
+  incident_category_id,
+  incident_category_name,
+  incident_interface_id,
+  incident_interface_name,
+  checklist_step_id,
+  sla,
+  incidentes
     ]
   }
 }
