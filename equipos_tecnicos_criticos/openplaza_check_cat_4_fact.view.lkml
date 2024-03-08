@@ -52,6 +52,11 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."nota_fact" ;;
   }
 
+  measure: avg_nota_fact {
+    type: average
+    sql: ${nota_fact} ;;
+  }
+
   measure: ejecuciones_fact {
     type: count_distinct
     sql: ${checklist_id} ;;
