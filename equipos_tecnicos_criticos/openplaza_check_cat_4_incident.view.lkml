@@ -2,7 +2,8 @@
 view: openplaza_check_cat_4_incident {
   derived_table: {
     sql: select date, finished_date, is_finished, incident_id, u.*, tag_id, incident_description, ist.*, ic.*, ii.*,
-             checklist_step_id, sla
+                checklist_step_id, sla,
+                row_number() over () as prim_key
       from openplaza_pe.tenant_incident_fact
       join openplaza_pe.users u on u.user_id = last_user_id
       join openplaza_pe.incident_state_type ist using (incident_state_type_id)
@@ -14,6 +15,12 @@ view: openplaza_check_cat_4_incident {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  dimension: prim_key {
+    type: number
+    primary_key: yes
+    sql: ${TABLE}.prim_key ;;
   }
 
   dimension_group: date {
@@ -102,7 +109,7 @@ view: openplaza_check_cat_4_incident {
   }
 
   measure: incidentes {
-    type:  count_distinct
+    type: count_distinct
     sql: ${incident_id} ;;
   }
 
