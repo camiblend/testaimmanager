@@ -1,7 +1,7 @@
 
 view: openplaza_check_cat_4_fact {
   derived_table: {
-    sql: select checklist_id, checklist_type_id, venue_id, cast(finished_date as date) fecha, u.*, grade fecha_fact
+    sql: select checklist_id, checklist_type_id, venue_id, cast(finished_date as date) fecha, u.*, grade nota_fact
       from openplaza_pe.tenant_checklist_fact
       join openplaza_pe.users u on user_id = evaluator_id
       where checklist_category_id = 4 ;;
@@ -47,9 +47,9 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."user_email" ;;
   }
 
-  dimension: round {
+  dimension: nota_fact {
     type: number
-    sql: ${TABLE}."round" ;;
+    sql: ${TABLE}."nota_fact" ;;
   }
 
   measure: ejecuciones_fact {
@@ -66,7 +66,7 @@ view: openplaza_check_cat_4_fact {
   user_id,
   user_name,
   user_email,
-  round,
+  nota_fact,
   ejecuciones_fact
     ]
   }
