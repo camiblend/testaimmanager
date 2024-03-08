@@ -9,8 +9,8 @@ persist_with: v1_warehouse_default_datagroup
 
 # include all the views
 
-include: "/views/**/*.view"
-
+#include: "/views/**/*.view"
+include: "/equipos_tecnicos_criticos/**/*.view"
 explore: openplaza_check_cat_4_adherencia {
   join: openplaza_check_cat_4_fact {
     type: left_outer
