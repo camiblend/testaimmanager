@@ -54,9 +54,9 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."user_email" ;;
   }
 
-  dimension: grade {
+  dimension: nota_fact {
     type: number
-    sql: ${TABLE}."grade" ;;
+    sql: ${TABLE}."nota_fact" ;;
   }
 
   measure: ejecuciones_fact {
@@ -66,7 +66,7 @@ view: openplaza_check_cat_4_fact {
 
   measure: prom_nota_fact {
     type: average
-    sql: ${grade} ;;
+    sql: ${nota_fact} ;;
   }
 
   set: detail {
@@ -78,7 +78,7 @@ view: openplaza_check_cat_4_fact {
   user_id,
   user_name,
   user_email,
-  grade,
+  nota_fact,
   ejecuciones_fact,
   prom_nota_fact
     ]
