@@ -155,6 +155,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     type: count_distinct
     sql: ${identificador} ;;
   }
+
   set: detail {
     fields: [
         checklist_type_id,
@@ -171,7 +172,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   venue_alias,
   to_join,
   checklist_id,
-  number_of_unique_execution
+  number_of_unique_execution,
+  number_of_unique_type_venue_join
     ]
   }
 }
