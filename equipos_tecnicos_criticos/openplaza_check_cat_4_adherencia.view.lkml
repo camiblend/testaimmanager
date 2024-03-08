@@ -146,12 +146,12 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${TABLE}."checklist_id" ;;
   }
 
-  measure: number_of_unique_execution {
+  measure: ejecuciones {
     type: count_distinct
     sql: ${checklist_id} ;;
   }
 
-  measure: number_of_unique_type_venue_join {
+  measure: meta {
     type: count_distinct
     sql: ${identificador} ;;
   }
@@ -172,8 +172,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   venue_alias,
   to_join,
   checklist_id,
-  number_of_unique_execution,
-  number_of_unique_type_venue_join
+  ejecuciones,
+  meta
     ]
   }
 }
