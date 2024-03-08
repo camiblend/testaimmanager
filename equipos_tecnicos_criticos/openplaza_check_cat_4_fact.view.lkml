@@ -52,6 +52,11 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."round" ;;
   }
 
+  measure: ejecuciones_fact {
+    type: count_distinct
+    sql: ${checklist_id} ;;
+  }
+
   set: detail {
     fields: [
         checklist_id,
@@ -61,7 +66,8 @@ view: openplaza_check_cat_4_fact {
   user_id,
   user_name,
   user_email,
-  round
+  round,
+  ejecuciones_fact
     ]
   }
 }
