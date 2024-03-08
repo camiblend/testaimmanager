@@ -64,10 +64,10 @@ view: openplaza_check_cat_4_fact {
     sql: ${checklist_id} ;;
   }
 
-  measure: prom_nota_fact {
-    type: average
-    sql: ${nota_fact} ;;
-  }
+  #measure: prom_nota_fact {
+  #  type: average
+  #  sql: ${nota_fact} ;;
+  #}
 
   set: detail {
     fields: [
@@ -79,8 +79,7 @@ view: openplaza_check_cat_4_fact {
   user_name,
   user_email,
   nota_fact,
-  ejecuciones_fact,
-  prom_nota_fact
+  ejecuciones_fact #, prom_nota_fact
     ]
   }
 }
