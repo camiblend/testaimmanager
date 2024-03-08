@@ -72,6 +72,7 @@ view: openplaza_check_cat_4_fact {
   user_name,
   user_email,
   nota_fact,
+  avg_nota_fact,
   ejecuciones_fact
     ]
   }
