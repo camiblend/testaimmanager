@@ -33,6 +33,6 @@ explore: openplaza_check_cat_4_adherencia {
   join: openplaza_check_cat_4_incident {
     type: left_outer
     sql_on: ${openplaza_check_cat_4_incident.checklist_step_id}    = ${openplaza_checks_cat_4_step.checklist_step_id};;
-    relationship: many_to_many
+    relationship: one_to_one
   }
 }
