@@ -52,14 +52,14 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."grade" ;;
   }
 
-  measure: avg_nota_fact {
-    type: average
-    sql: ${grade} ;;
-  }
-
   measure: ejecuciones_fact {
     type: count_distinct
     sql: ${checklist_id} ;;
+  }
+
+  measure: avg_nota_fact {
+    type: average
+    sql: ${grade} ;;
   }
 
   set: detail {
@@ -72,8 +72,7 @@ view: openplaza_check_cat_4_fact {
   user_name,
   user_email,
   grade,
-  avg_nota_fact,
-  ejecuciones_fact
+  ejecuciones_fact,  avg_nota_fact
     ]
   }
 }
