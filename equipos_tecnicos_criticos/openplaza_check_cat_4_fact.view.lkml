@@ -1,7 +1,7 @@
 
 view: openplaza_check_cat_4_fact {
   derived_table: {
-    sql: select checklist_id, checklist_type_id, venue_id, cast(finished_date as date) fecha, u.*, round(grade::numeric,2) nota_fact,
+    sql: select checklist_id, checklist_type_id, venue_id, cast(finished_date as date) fecha, u.*, grade nota_fact,
                 row_number() over () as prim_key
       from openplaza_pe.tenant_checklist_fact
       join openplaza_pe.users u on user_id = evaluator_id
