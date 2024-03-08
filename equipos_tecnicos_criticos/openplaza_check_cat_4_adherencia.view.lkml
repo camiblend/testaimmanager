@@ -156,6 +156,12 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${identificador} ;;
   }
 
+  measure: cumplimiento {
+    type: number
+    sql: ${ejecuciones}/${meta} ;;
+    value_format_name: "percent_2"
+  }
+
   set: detail {
     fields: [
         checklist_type_id,
