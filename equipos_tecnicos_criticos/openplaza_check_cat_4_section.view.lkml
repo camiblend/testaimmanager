@@ -1,7 +1,8 @@
 
 view: openplaza_check_cat_4_section {
   derived_table: {
-    sql: select checklist_id, grade nota_section, s.*
+    sql: select checklist_id, grade nota_section, s.*,
+                row_number() over () as prim_key
       from openplaza_pe.tenant_checklist_section_fact
       join openplaza_pe.section_type s using (section_type_id)
       where checklist_category_id = 4 ;;
@@ -10,6 +11,12 @@ view: openplaza_check_cat_4_section {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  dimension: prim_key {
+    type: number
+    primary_key: yes
+    sql: ${TABLE}.prim_key ;;
   }
 
   dimension: checklist_id {
@@ -29,6 +36,7 @@ view: openplaza_check_cat_4_section {
 
   dimension: section_type_name {
     type: string
+    label: "Sección"
     sql: ${TABLE}."section_type_name" ;;
   }
 
