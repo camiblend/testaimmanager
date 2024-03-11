@@ -24,9 +24,9 @@ view: openplaza_check_cat_4_section {
     sql: ${TABLE}."checklist_id" ;;
   }
 
-  dimension: round {
+  dimension: nota_section {
     type: number
-    sql: ${TABLE}."round" ;;
+    sql: ${TABLE}."nota_section" ;;
   }
 
   dimension: section_type_id {
@@ -43,7 +43,7 @@ view: openplaza_check_cat_4_section {
   set: detail {
     fields: [
         checklist_id,
-  round,
+  nota_section,
   section_type_id,
   section_type_name
     ]
