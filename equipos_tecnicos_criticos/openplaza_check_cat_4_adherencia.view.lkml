@@ -65,8 +65,7 @@ view: openplaza_check_cat_4_adherencia {
           from rn where rn = 1
       )
 
-select base_final.*, ejecuciones.checklist_id, concat(tipo_checklist,venue_name,to_join) identificador,
-       concat('https://openplaza-peru.aimmanager.com/checklists/checklists/',checklist_id) as url
+select base_final.*, ejecuciones.checklist_id, concat(tipo_checklist,venue_name,to_join) identificador
 from base_final
 left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   }
@@ -87,8 +86,10 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   }
 
   dimension: url {
-    type: string
-    sql:${TABLE}."url" ;;
+    link: {
+      label: "Ver en plataforma"
+      url: "https://openplaza-peru.aimmanager.com/checklists/checklists/?id={{ _filters['checklist_id'] | url_encode }}"
+    }
   }
 
   dimension: frecuencia {
