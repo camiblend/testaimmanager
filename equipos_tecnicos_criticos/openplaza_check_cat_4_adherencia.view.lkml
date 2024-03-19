@@ -160,11 +160,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     type: string
     sql: ${venue_name} ;;
     html:
-              {% if venue_name._value == "ANGAMOS" %}
-              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="170" width="255">
-              {% else %}
-              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="170" width="170">
-              {% endif %} ;;
+              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="90" width="200">
+               ;;
   }
 
 
