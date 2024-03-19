@@ -1,7 +1,8 @@
 
 view: openplaza_checks_cat_4_step {
   derived_table: {
-    sql: select checklist_id, grade as nota_step, comments, s.*, section_type_id, checklist_step_id
+    sql: select checklist_id, grade as nota_step, comments, s.*, section_type_id, checklist_step_id,
+                row_number() over () as prim_key
       from openplaza_pe.tenant_checklist_step_fact
       join openplaza_pe.step_type s using (step_type_id)
       where checklist_category_id = 4 and not (grade is null and comments is null) ;;
@@ -10,6 +11,12 @@ view: openplaza_checks_cat_4_step {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  dimension: prim_key {
+    type: number
+    primary_key: yes
+    sql: ${TABLE}.prim_key ;;
   }
 
   dimension: checklist_id {
