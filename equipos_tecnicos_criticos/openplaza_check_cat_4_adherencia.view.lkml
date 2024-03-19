@@ -156,6 +156,17 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${identificador} ;;
   }
 
+  dimension: image {
+    type: string
+    sql: ${venue_name} ;;
+    html:
+              {% if venue_name._value == "ANGAMOS" %}
+              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="170" width="255">
+              {% else %}
+              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="170" width="170">
+              {% endif %} ;;
+  }
+
 
   set: detail {
     fields: [
@@ -174,7 +185,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   to_join,
   checklist_id,
   ejecuciones,
-  meta
+  meta,
+  image
     ]
   }
 }
