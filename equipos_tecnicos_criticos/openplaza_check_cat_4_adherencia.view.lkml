@@ -149,7 +149,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   }
 
   dimension: checklist_id {
-    type: number
+    type: string
     sql: ${TABLE}."checklist_id" ;;
   }
 
