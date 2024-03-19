@@ -20,8 +20,15 @@ view: openplaza_check_cat_4_fact {
   }
 
   dimension: checklist_id {
-    type: number
+    type: string
     sql: ${TABLE}."checklist_id" ;;
+  }
+
+  dimension: url {
+    link: {
+      label: "Ver en plataforma"
+      url: "https://openplaza-peru.aimmanager.com/checklists/checklists/?id={{ _filters['checklist_id'] | url_encode }}"
+    }
   }
 
   dimension: checklist_type_id {
@@ -74,6 +81,7 @@ view: openplaza_check_cat_4_fact {
   set: detail {
     fields: [
         checklist_id,
+  url,
   checklist_type_id,
   venue_id,
   fecha,

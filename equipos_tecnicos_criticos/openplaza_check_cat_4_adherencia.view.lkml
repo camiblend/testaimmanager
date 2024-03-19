@@ -85,13 +85,6 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${TABLE}."identificador" ;;
   }
 
-  dimension: url {
-    link: {
-      label: "Ver en plataforma"
-      url: "https://openplaza-peru.aimmanager.com/checklists/checklists/?id={{ _filters['checklist_id'] | url_encode }}"
-    }
-  }
-
   dimension: frecuencia {
     type: string
     sql: ${TABLE}."frecuencia" ;;
@@ -188,7 +181,6 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   venue_alias,
   to_join,
   checklist_id,
-  url,
   ejecuciones,
   meta,
   image
