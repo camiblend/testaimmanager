@@ -1,7 +1,7 @@
 
 view: openplaza_checks_cat_4_step {
   derived_table: {
-    sql: select checklist_id, grade as nota_step, comments, s.*, section_type_id, checklist_step_id,
+    sql: select checklist_id, grade nota_step, comments, s.*, section_type_id, checklist_step_id,
                 row_number() over () as prim_key
       from openplaza_pe.tenant_checklist_step_fact
       join openplaza_pe.step_type s using (step_type_id)
@@ -24,9 +24,10 @@ view: openplaza_checks_cat_4_step {
     sql: ${TABLE}."checklist_id" ;;
   }
 
-  dimension: round {
+  dimension: nota_step {
     type: number
-    sql: ${TABLE}."round" ;;
+    label: "nota paso"
+    sql: ${TABLE}."nota_step" ;;
   }
 
   dimension: comments {
@@ -58,7 +59,7 @@ view: openplaza_checks_cat_4_step {
   set: detail {
     fields: [
         checklist_id,
-  round,
+  nota_step,
   comments,
   step_type_id,
   step_type_name,
