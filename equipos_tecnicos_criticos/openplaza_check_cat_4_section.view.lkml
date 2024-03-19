@@ -26,6 +26,7 @@ view: openplaza_check_cat_4_section {
 
   dimension: nota_section {
     type: number
+    label: "Nota Sección"
     sql: ${TABLE}."nota_section" ;;
   }
 

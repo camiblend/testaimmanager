@@ -34,6 +34,7 @@ view: openplaza_checks_cat_4_step {
 
   dimension: step_type_name {
     type: string
+    label: "Paso"
     sql: ${TABLE}."step_type_name" ;;
   }
 

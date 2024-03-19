@@ -46,6 +46,7 @@ view: openplaza_check_cat_4_fact {
 
   dimension: user_name {
     type: string
+    label: "Usuario"
     sql: ${TABLE}."user_name" ;;
   }
 
@@ -56,6 +57,7 @@ view: openplaza_check_cat_4_fact {
 
   dimension: nota_fact {
     type: number
+    label: "Nota Gral"
     sql: ${TABLE}."nota_fact" ;;
   }
 
