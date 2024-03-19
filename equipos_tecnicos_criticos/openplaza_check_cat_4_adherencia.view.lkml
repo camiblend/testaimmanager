@@ -86,7 +86,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${TABLE}."identificador" ;;
   }
 
-  measure: url {
+  dimension: url {
     type: string
     sql:${TABLE}."url" ;;
   }
