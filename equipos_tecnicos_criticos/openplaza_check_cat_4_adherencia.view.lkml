@@ -210,7 +210,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   dimension: week {
     type: number
     label: "Semana"
-    sql: extract(week from ${TABLE}.fecha) ;;
+    sql: CONCAT('S', extract(week from ${TABLE}.fecha)::string) ;;
   }
 
 
