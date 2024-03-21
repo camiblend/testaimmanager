@@ -180,19 +180,19 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
 
   dimension: year {
     type: number
-    label: "año"
+    label: "Año"
     sql: extract(year from ${TABLE}.fecha) ;;
   }
 
   dimension: month {
     type: number
-    label: "mes"
+    label: "Mes"
     sql: extract(month from ${TABLE}.fecha) ;;
   }
 
   dimension: week {
     type: number
-    label: "semana"
+    label: "Semana"
     sql: extract(week from ${TABLE}.fecha) ;;
   }
 
