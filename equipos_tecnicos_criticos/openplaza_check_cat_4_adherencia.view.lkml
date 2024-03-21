@@ -167,7 +167,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   measure: cumplimiento {
     type: string
     sql: ${ejecuciones} ;;
-    html:
+    html: dynamic
               {% if ejecuciones._value > 1 %}
               <img src="https://static.vecteezy.com/system/resources/previews/009/591/413/non_2x/check-mark-icon-free-png.png" height="40" width="40">
               {% else %}
