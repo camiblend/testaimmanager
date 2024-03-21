@@ -167,7 +167,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   measure: cumplimiento {
     type: string
     sql: ${ejecuciones} ;;
-    html: dynamic
+    html:
               {% if ejecuciones._value > 1 %}
               <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="40" width="40">
               {% else %}
