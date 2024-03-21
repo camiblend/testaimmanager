@@ -164,6 +164,18 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
                ;;
   }
 
+  dimension: cumplimiento {
+    type: string
+    sql: ${checklist_id} ;;
+    html:
+              {% if checklist_id._value > 1 %}
+              <img src="https://fontawesome.com/icons/check?f=classic&s=solid" height="30" width="30">
+              {% else %}
+              <img src="https://fontawesome.com/icons/xmark?f=classic&s=solid" height="30" width="30">
+              {% endif %}
+               ;;
+  }
+
 
   set: detail {
     fields: [
