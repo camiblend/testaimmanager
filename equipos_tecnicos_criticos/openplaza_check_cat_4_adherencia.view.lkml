@@ -156,6 +156,24 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${identificador} ;;
   }
 
+  #dimension: p1 {
+  #  type: number
+  #  label: "Año"
+  #  sql: ${p1} ;;
+  #}
+  #
+  #dimension: p2 {
+  #  type: number
+  #  label: "Mes"
+  #  sql: ${p2} ;;
+  #}
+  #
+  #dimension: p3 {
+  #  type: number
+  #  label: "N.Semana"
+  #  sql: ${p3} ;;
+  #}
+
   dimension: image {
     type: string
     sql: ${venue_name} ;;
