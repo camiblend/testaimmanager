@@ -184,10 +184,29 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: extract(year from ${TABLE}.fecha) ;;
   }
 
-  dimension: month {
+  dimension: n_month {
     type: number
-    label: "Mes"
     sql: extract(month from ${TABLE}.fecha) ;;
+  }
+
+  dimension: nombre_mes {
+    type: string
+    label: "Mes"
+    sql: CASE
+         WHEN ${n_month} = 1 THEN 'Enero'
+         WHEN ${n_month} = 2 THEN 'Febrero'
+         WHEN ${n_month} = 3 THEN 'Marzo'
+         WHEN ${n_month} = 4 THEN 'Abril'
+         WHEN ${n_month} = 5 THEN 'Mayo'
+         WHEN ${n_month} = 6 THEN 'Junio'
+         WHEN ${n_month} = 7 THEN 'Julio'
+         WHEN ${n_month} = 8 THEN 'Agosto'
+         WHEN ${n_month} = 9 THEN 'Septiembre'
+         WHEN ${n_month} = 10 THEN 'Octubre'
+         WHEN ${n_month} = 11 THEN 'Noviembre'
+         WHEN ${n_month} = 12 THEN 'Diciembre'
+         ELSE NULL
+       END ;;
   }
 
   dimension: week {
@@ -217,7 +236,8 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   meta,
   image,
   year,
-  month,
+  n_month,
+  nombre_mes,
   week
     ]
   }
