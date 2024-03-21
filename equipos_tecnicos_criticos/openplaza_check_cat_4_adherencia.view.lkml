@@ -169,7 +169,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 1 %}
-              <img src="https://fontawesome.com/icons/check?f=classic&s=solid" height="30" width="30">
+              <img src="https://image.similarpng.com/very-thumbnail/2021/06/Green-check-mark-icon-on-transparent-background-PNG.png" height="30" width="30">
               {% else %}
               <img src="https://fontawesome.com/icons/xmark?f=classic&s=solid" height="30" width="30">
               {% endif %}
