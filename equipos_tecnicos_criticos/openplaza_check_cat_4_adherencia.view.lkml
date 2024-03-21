@@ -178,11 +178,24 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
                ;;
   }
 
-  dimension_group: F {
-    type: time
-    timeframes: [week, month, year]
+  dimension: year {
+    type: number
+    label: "año"
     sql: extract(year from ${TABLE}.fecha) ;;
   }
+
+  dimension: month {
+    type: number
+    label: "mes"
+    sql: extract(month from ${TABLE}.fecha) ;;
+  }
+
+  dimension: week {
+    type: number
+    label: "semana"
+    sql: extract(week from ${TABLE}.fecha) ;;
+  }
+
 
   set: detail {
     fields: [
@@ -203,9 +216,9 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   ejecuciones,
   meta,
   image,
-  F_year,
-  F_month,
-  F_week
+  year,
+  month,
+  week
     ]
   }
 }
