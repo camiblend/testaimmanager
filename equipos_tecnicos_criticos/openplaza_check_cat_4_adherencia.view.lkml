@@ -168,7 +168,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     type: string
     sql: ${ejecuciones} ;;
     html:
-              {% if ejecuciones._value > 1 %}
+              {% if ejecuciones._value > 0 %}
               <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="40" width="40">
               {% else %}
               <img src="https://fontawesome.com/icons/xmark?f=classic&s=solid" height="30" width="30">
