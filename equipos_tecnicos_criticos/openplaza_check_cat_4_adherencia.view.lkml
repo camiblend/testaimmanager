@@ -169,7 +169,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 0 %}
-              <p><img src="https://cloud.google.com/static/looker/docs/images/check.png" height="20" width="20">{{ cami }}</p>
+              <p><img src="https://cloud.google.com/static/looker/docs/images/check.png" height="20" width="20">{{  rendered_value }}</p>
               {% else %}
               <p><img src="https://cloud.google.com/static/looker/docs/images/cancel.png" height="20" width="20">{{ rendered_value }}</p>
               {% endif %}
