@@ -169,9 +169,9 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 0 %}
-              <p><img src="https://s3.amazonaws.com/aim-openplaza-pe/aim/checklists/checklist_interfaces/icons/000/000/071/original/wm_trastienda.png?1676319920" height="40" width="20">{{ rendered_value }}</p>
+              <p><img src="https://cloud.google.com/static/looker/docs/images/check.png" height="20" width="20">{{ cami }}</p>
               {% else %}
-              <p><img src="https://s3.amazonaws.com/aim-openplaza-pe/aim/checklists/checklist_interfaces/icons/000/000/073/original/manten.png?1676492795" height="40" width="20">{{ rendered_value }}</p>
+              <p><img src="https://cloud.google.com/static/looker/docs/images/cancel.png" height="20" width="20">{{ rendered_value }}</p>
               {% endif %}
                ;;
   }
