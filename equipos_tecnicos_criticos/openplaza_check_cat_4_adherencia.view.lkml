@@ -169,7 +169,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html: dynamic
               {% if ejecuciones._value > 1 %}
-              <img src="https://static.vecteezy.com/system/resources/previews/009/591/413/non_2x/check-mark-icon-free-png.png" height="40" width="40">
+              <img src="https://aimmanager.com/wp-content/uploads/2019/07/mainlogo-300x138.png" height="40" width="40">
               {% else %}
               <img src="https://fontawesome.com/icons/xmark?f=classic&s=solid" height="30" width="30">
               {% endif %}
