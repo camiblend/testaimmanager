@@ -171,7 +171,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
               {% if ejecuciones._value > 0 %}
               <p><img src="https://www.svgrepo.com/show/384403/accept-check-good-mark-ok-tick.svg"  height="20" width="20"></p>
               {% else %}
-              <p><img src="https://www.svgrepo.com/show/384369/alert-danger-error-warning.svg" height="20" width="20"></p>
+              <p><img src="https://www.svgrepo.com/show/401366/cross-mark-button.svg" height="20" width="20"></p>
               {% endif %}
                ;;
   }
