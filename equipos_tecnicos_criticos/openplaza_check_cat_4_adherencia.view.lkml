@@ -169,9 +169,9 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 0 %}
-              <p><svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /></svg></p>
+              <p><img src="https://www.svgrepo.com/show/356371/tick.svg"  height="20" width="20"></p>
               {% else %}
-              <p><img src="https://www.svgrepo.com/show/509072/cross.svg" style="fill: red;" height="20" width="20"></p>
+              <p><img src="https://www.svgrepo.com/show/405158/cross-mark.svg" height="20" width="20"></p>
               {% endif %}
                ;;
   }
