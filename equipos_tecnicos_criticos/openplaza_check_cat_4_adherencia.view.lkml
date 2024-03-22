@@ -169,7 +169,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 0 %}
-              <p><img src="https://www.creativefabrica.com/wp-content/uploads/2022/11/08/Check-mark-V-Letter-Logo-Template-Graphics-45563482-1-1-580x387.jpg" height="20" width="20"></p>
+              <p><img src="https://fontawesome.com/icons/check?f=classic&s=solid" height="20" width="20"></p>
               {% else %}
               <p><img src="https://cloud.google.com/static/looker/docs/images/cancel.png" height="20" width="20"></p>
               {% endif %}
