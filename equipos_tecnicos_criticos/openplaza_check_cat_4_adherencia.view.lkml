@@ -169,7 +169,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${ejecuciones} ;;
     html:
               {% if ejecuciones._value > 0 %}
-              <p><img src="https://static.vecteezy.com/system/resources/previews/020/190/670/non_2x/cocacola-logo-cocacola-icon-free-free-vector.jpg" height="20" width="20"></p>
+              <p><img src="https://drive.google.com/file/d/14bVbuBd4msvzHv1t64fUdYs4Ft3VQ1qd/view" height="20" width="20"></p>
               {% else %}
               <p><img src="https://cloud.google.com/static/looker/docs/images/cancel.png" height="20" width="20"></p>
               {% endif %}
