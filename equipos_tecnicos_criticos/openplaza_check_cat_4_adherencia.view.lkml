@@ -188,8 +188,10 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
   }
 
   dimension: dashboard_2 {
+       type: string
+    sql: ${TABLE}.state ;;
     link: {
-      label: "Ver cumplimiento"
+      label:"Ver cumplimiento"
       url: "https://aimmanagertest.cloud.looker.com/dashboards/8?tile_id15.openplaza_check_cat_4_adherencia.tipo_checklist={{ _filters['tipo_checklist'] | url_encode}}"
       icon_url: "https://aimmanager.com/wp-content/uploads/2020/01/nuevo-AIM-logo-e1651708693619-300x116.png"
     }
