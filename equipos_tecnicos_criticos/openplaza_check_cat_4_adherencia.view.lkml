@@ -192,7 +192,7 @@ left join ejecuciones using (to_join,checklist_type_id,venue_id) ;;
     sql: ${TABLE}.tipo_checklist ;;
     link: {
       label:"Ver cumplimiento"
-      url: "https://aimmanagertest.cloud.looker.com/dashboards/8?Checklist={{ openplaza_check_cat_4_adherencia.tipo_checklist}}&Recinto={{ openplaza_check_cat_4_adherencia.venue_name}}"
+      url: "https://aimmanagertest.cloud.looker.com/dashboards/8?Checklist={{ openplaza_check_cat_4_adherencia.tipo_checklist | url_encode}}&Recinto={{ openplaza_check_cat_4_adherencia.venue_name | url_encode}}"
       icon_url: "https://aimmanager.com/wp-content/uploads/2020/01/nuevo-AIM-logo-e1651708693619-300x116.png"
     }
   }
