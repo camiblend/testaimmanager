@@ -28,7 +28,7 @@ view: openplaza_check_cat_4_fact {
     sql: ${TABLE}."checklist_id" ;;
     link: {
       label: "Ver en plataforma"
-      url: "https://openplaza-peru.aimmanager.com/checklists/checklists/q={{ value }}"
+      url: "https://openplaza-peru.aimmanager.com/checklists/checklists/{{ value }}"
       icon_url: "https://aimmanager.com/wp-content/uploads/2020/01/nuevo-AIM-logo-e1651708693619-300x116.png"
     }
   }
