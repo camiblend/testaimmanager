@@ -207,11 +207,8 @@ view: openplaza_check_cat_4_adherencia {
       join checklist_type_section cts    on 1=1
       left join checklist_multados cm    on pa.mes_anio = cm.mes_anio and pa.venue_id = cm.venue_id and pa.tipo = cts.tipo
       left join version_quincena_mes vqm on vqm.fecha <= cm.date and coalesce(vqm.fecha, current_date) > cm.date
-      left join sections s               on s.checklist_id = cm.checklist_id and s.section_type_name = cts.section_type_name and s.tipo = cts.tipo
+      left join sections s               on s.checklist_id = cm.checklist_id and s.section_type_name = cts.section_type_name and s.tipo = cts.tipo;;
 
-
-
-      ;;
   }
 
   measure: count {
