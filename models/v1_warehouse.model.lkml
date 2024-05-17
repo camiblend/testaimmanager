@@ -11,6 +11,7 @@ persist_with: v1_warehouse_default_datagroup
 
 #include: "/views/**/*.view"
 include: "/equipos_tecnicos_criticos/**/*.view"
+include: "/Facilities/**/*.view"
 explore: openplaza_check_cat_4_adherencia {
   join: openplaza_check_cat_4_fact {
     type: left_outer
@@ -36,3 +37,6 @@ explore: openplaza_check_cat_4_adherencia {
     relationship: one_to_one
   }
 }
+
+explore: step_multados {}
+explore: principal {}
